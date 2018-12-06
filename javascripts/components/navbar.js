@@ -26,5 +26,6 @@ Vue.component('navbar', {
               </form>
             </div>
           </nav>
-</div>`
+</div>`,
+  props: ['isLogin']
 })
