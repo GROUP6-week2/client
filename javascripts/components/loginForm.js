@@ -1,14 +1,14 @@
 Vue.component('loginform', {
-    data: 
-    function() {
-        return {
-            url: 'http://localhost:3000',
-            login: {
-                email: '',
-                password: ''
+    data:
+        function () {
+            return {
+                url: 'http://localhost:3000',
+                login: {
+                    email: '',
+                    password: ''
+                }
             }
-        }   
-    },
+        },
     methods: {
         loginPost() {
             console.log('masuk function loginPost')
@@ -30,10 +30,10 @@ Vue.component('loginform', {
             // })
         }
     },
-    
+
     template: `<div>
                     <form class="form-signin" method="POST">
-                        <img class="mb-4" src="logo_emotionship.png">
+                        <img class="mb-4" src="assets/logo_emotionship.png">
                         <h1 class="h3 mb-3 font-weight-normal text-center">Please sign in</h1>
                         <label for="inputEmail" class="sr-only">Email address</label>
                         <input v-model="login.email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
