@@ -1,5 +1,5 @@
 Vue.component('registerform', {
-    template: `<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    template: `<div class="modal fade" id="registerModal" tabindex="-1" role="dialog">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -8,24 +8,45 @@ Vue.component('registerform', {
                                         <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <form class="form-group" id="formSignup">
+                            <form @submit.prevent="register" class="form-group" id="formSignup">
                                 <div class="modal-body">
-                                    <div id="signupNotif">
-
-                                    </div>
-                                
-                                    <input type="text" id="inputName" class="form-control" placeholder="Your name" required autofocus>
-                                
-                                    <input type="text" id="inputSignupEmail" class="form-control" placeholder="Email address" required autofocus>
-                                    
-                                    <input type="password" id="inputSignupPassword" class="form-control" placeholder="Password" required autofocus>
+                                    <div id="signupNotif"></div>
+                                    <input v-model="name" type="text" class="form-control mb-3" placeholder="Your name" required autofocus>
+                                    <input v-model="email" type="text" class="form-control mb-3" placeholder="Email address" required autofocus>
+                                    <input v-model="password" type="password" class="form-control" placeholder="Password" required autofocus>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-                                    <button type="submit" class="btn btn-secondary">Submit</button>
+                                    <button type="submit" @click.prevent="register" class="btn btn-secondary" data-dismiss="modal">Submit</button>
                                 </div>
                             </form>
                         </div>
                     </div>
-                </div>`
+                </div>`,
+    data() {
+        return {
+            name: "",
+            email: "",
+            password: ""
+        }
+    },
+    methods: {
+        register() {
+            axios({
+                url: `http://localhost:3000/register`,
+                method: 'POST',
+                data: {
+                    name: this.name,
+                    email: this.email,
+                    password: this.password
+                }
+            })
+            .then(({ data, status }) => {
+                console.log('you are successfully registered')
+            })
+            .catch(err => {
+                console.log(err)
+            })
+        }
+    }
 })
