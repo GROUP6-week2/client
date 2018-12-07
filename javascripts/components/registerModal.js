@@ -35,7 +35,7 @@ Vue.component('registerform', {
     methods: {
         register() {
             axios({
-                url: `http://35.247.172.222:3000/register`,
+                url: `https://emotionship-api.ranggakusuma.site/register`,
                 method: 'POST',
                 data: {
                     name: this.name,
