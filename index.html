@@ -16,6 +16,7 @@
 
 <body>
 
+
     <div id="app" class="container-fluid">
         <navbar v-if="isLogin" @logged-out="loginCheck" class="sticky-top mb-3"></navbar>
         <div v-if="!isLogin" class="row justify-content-center align-items-center" style="height: 100vh">
@@ -23,7 +24,9 @@
                 <loginform @logged-in="loginCheck"></loginform>
             </div>
         </div>
+        <image-meme :url="urlSource" :meme="meme"></image-meme>
         <mainpage v-if="isLogin" @logged-out="loginCheck" class="mb-5"></mainpage>
+
     </div>
 
 
@@ -35,7 +38,8 @@
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
-        <script src="javascripts/components/navbar.js"></script>
+    <script src="javascripts/components/navbar.js"></script>
+    <script src="javascripts/components/memefy.js"></script>
     <script src="javascripts/components/loginForm.js"></script>
     <script src="javascripts/components/registerModal.js"></script>
     <script src="javascripts/components/mainPage.js"></script>
