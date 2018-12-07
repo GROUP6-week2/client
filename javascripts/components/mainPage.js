@@ -6,13 +6,20 @@ Vue.component('mainpage', {
         }
     },
     methods: {
+        addImage (event) {
+            this.image = event.target.files[0]
+        },
+
         uploadImage() {
             let formData = new FormData()
             formData.append('image', this.image)
             axios({
                 url: `${this.url}/images`,
                 method: 'POST',
-                data: formData
+                data: formData,
+                headers: {
+                    auth: localStorage.token
+                }
                 
             })
             .then(result => {
@@ -59,8 +66,9 @@ Vue.component('mainpage', {
                                 
                                 <div class="custom-file">
                                     <form @submit.prevent="uploadImage">
-                                        <input v-model="image" type="file" class="custom-file-input" id="customFile">
-                                        <label class="custom-file-label" for="customFile">Choose file</label>
+                                        <input @change="addImage" type="file" class="custom-file-input" id="customFile">
+                                        <label class="custom-file-label" for="customFile">{{ image ? image.name : "Choose File"}}</label>
+                                        <button v-if="image" type="submit" class="btn btn-primary mt-3 mb-4">Upload</button>
                                     </form>
                                 </div>
                             </div>
