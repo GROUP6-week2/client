@@ -16,7 +16,7 @@ Vue.component('mainpage', {
             let formData = new FormData()
             formData.append('image', this.image)
             axios({
-                url: `http://35.247.172.222:3000/images`,
+                url: `https://emotionship-api.ranggakusuma.site/images`,
                 method: 'POST',
                 data: formData,
                 headers: {

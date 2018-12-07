@@ -11,7 +11,7 @@ Vue.component('loginform', {
     methods: {
         loginPost() {
             axios({
-                url: `http://35.247.172.222:3000/login`,
+                url: `https://emotionship-api.ranggakusuma.site/login`,
                 method: 'POST',
                 data: {
                     email: this.login.email,
