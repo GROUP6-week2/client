@@ -1,4 +1,25 @@
 Vue.component('mainpage', {
+    data() {
+        return {
+            url: 'http://localhost:3000',
+            imageUrl: ''
+        }
+    },
+    methods: {
+        postImage() {
+            axios({
+                url: `${this.url}/images`,
+                method: 'POST',
+                
+            })
+            .then(result => {
+
+            })
+            .catch(err => {
+                
+            })
+        }
+    },
     template: `<div class="row">
                     <div class="col-md-8">
                         <div class="card">
