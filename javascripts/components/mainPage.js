@@ -3,7 +3,9 @@ Vue.component('mainpage', {
         return {
             image: '',
             urlSource: '',
-            mood: ""
+            mood: "",
+            message: '',
+            match: []
         }
     },
 
@@ -27,6 +29,7 @@ Vue.component('mainpage', {
                 .then(result => {
                     this.urlSource = result.data.currentImage.imageUrl
                     this.mood = result.data.currentMood
+                    this.findMatch()
                 })
                 .catch(err => {
                     console.log(err.message)
@@ -35,14 +38,20 @@ Vue.component('mainpage', {
 
         findMatch() {
             axios({
-                url: `http://localhost:3000/images/find`,
+                url: `http://35.247.172.222:3000/images/find`,
                 method: 'GET',
                 headers: {
-                    token: localStorage.getItem('token')
+                    auth: localStorage.token
                 }
             })
             .then(result => {
                 console.log(result.data)
+                if (result.data.length == 0) {
+                    this.match = ['Not match with any people']
+                }
+                else {
+                    this.match = result.data
+                }
             })
             .catch(err => {
                 console.log(err)
@@ -65,13 +74,12 @@ Vue.component('mainpage', {
                             <div class="card-header">
                                 <h3>People like you</h3>
                             </div>
-                            <div class="card-body">
+                            <div v-for="data in match" class="card-body">
                                 <h5 class="card-title">Special title treatment</h5>
-                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                <p class="card-text">{{ data.name }}</p>
+                                <p class="card-text">{{ data.phone }}</p>
+                                <img :src="data.currentImage.imageUrl">"
+                                <a href="#" class="btn btn-primary">Call now!</a>
                             </div>
                         </div>
                         <div class="card">
