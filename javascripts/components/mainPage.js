@@ -39,10 +39,8 @@ Vue.component('mainpage', {
                             <imagememe :url="urlSource" :mood="mood"></imagememe>
                             
                             <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                                    additional content. This content is a little bit longer.</p>
-                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                <h5 class="card-title">Share</h5>
+                                <p class="card-text"></p>
                             </div>
                         </div>
                     </div>
@@ -62,11 +60,11 @@ Vue.component('mainpage', {
                         </div>
                         <div class="card">
                             <div class="card-header">
-                                <h5>Upload your image</h5>
+                                <h5>Know Your Mood</h5>
                             </div>
                             <div class="card-body">
-                                <h5 class="card-title">Special title treatment</h5>
-                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                
+                                <p class="card-text">Upload your picture to know your mood for today</p>
                                 
                                 <div class="custom-file">
                                     <form @submit.prevent="uploadImage">
