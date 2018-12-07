@@ -67,8 +67,14 @@ Vue.component('mainpage', {
                             <imagememe :url="urlSource" :mood="mood"></imagememe>
                             
                             <div class="card-body">
+<<<<<<< HEAD
                                 <h5 class="card-title">Share</h5>
                                 <p class="card-text"></p>
+=======
+                                <h5 class="card-title">Card title</h5>
+                                <iframe src="https://www.facebook.com/plugins/share_button.php?href=https://emotionship.ranggakusuma.site&layout=button&size=small&mobile_iframe=true&appId=1987450261290720&width=59&height=20" width="59" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+                                
+>>>>>>> add new fb button
                             </div>
                         </div>
                     </div>
