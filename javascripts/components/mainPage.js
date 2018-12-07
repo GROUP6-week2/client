@@ -2,14 +2,17 @@ Vue.component('mainpage', {
     data() {
         return {
             url: 'http://localhost:3000',
-            imageUrl: ''
+            image: ''
         }
     },
     methods: {
-        postImage() {
+        uploadImage() {
+            let formData = new FormData()
+            formData.append('image', this.image)
             axios({
                 url: `${this.url}/images`,
                 method: 'POST',
+                data: formData
                 
             })
             .then(result => {
