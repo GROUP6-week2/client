@@ -2,14 +2,11 @@ Vue.component('mainpage', {
     data() {
         return {
             image: '',
-            urlSource: `https://memegen.link/custom/lalala/yuhuu.jpg?alt=http://www.gstatic.com/webp/gallery/1.jpg`,
-            meme: {
-                textAbove: '',
-                textBelow: ''
-
-            }
+            urlSource: '',
+            mood: ""
         }
     },
+
     methods: {
         addImage(event) {
             this.image = event.target.files[0]
@@ -28,17 +25,18 @@ Vue.component('mainpage', {
 
             })
                 .then(result => {
-                    console.log(result.data)
+                    this.urlSource = result.data.currentImage.imageUrl
+                    this.mood = result.data.currentMood
                 })
                 .catch(err => {
-
+                    console.log(err.message)
                 })
         }
     },
     template: `<div class="row">
                     <div class="col-md-8">
                         <div class="card">
-                            <image-meme :url="urlSource" :meme="meme"></image-meme>
+                            <imagememe :url="urlSource" :mood="mood"></imagememe>
                             
                             <div class="card-body">
                                 <h5 class="card-title">Card title</h5>
