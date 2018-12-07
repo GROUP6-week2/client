@@ -10,6 +10,12 @@ Vue.component('mainpage', {
         }
     },
 
+    computed: {
+        memeUrl() {
+            return `https://memegen.link/custom/i_feel/${this.mood}.jpg?alt=${this.urlSource}`
+        }
+    },
+
     methods: {
         addImage(event) {
             this.image = event.target.files[0]
@@ -64,17 +70,14 @@ Vue.component('mainpage', {
     template: `<div class="row">
                     <div class="col-md-8">
                         <div class="card">
-                            <imagememe :url="urlSource" :mood="mood"></imagememe>
+                            <imagememe :url="memeUrl" :mood="mood"></imagememe>
                             
                             <div class="card-body">
-<<<<<<< HEAD
                                 <h5 class="card-title">Share</h5>
                                 <p class="card-text"></p>
-=======
                                 <h5 class="card-title">Card title</h5>
                                 <iframe src="https://www.facebook.com/plugins/share_button.php?href=https://emotionship.ranggakusuma.site&layout=button&size=small&mobile_iframe=true&appId=1987450261290720&width=59&height=20" width="59" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-                                
->>>>>>> add new fb button
+                                <a :href="memeUrl" class="btn btn-primary" download>Download</a>
                             </div>
                         </div>
                     </div>
