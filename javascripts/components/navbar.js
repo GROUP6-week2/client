@@ -22,10 +22,16 @@ Vue.component('navbar', {
                 </li>
               </ul>
               <form class="form-inline my-2 my-lg-0">
-                <button class="btn btn-primary my-2 my-sm-0" type="submit">LOG OUT</button>
+                <button @click.prevent="logOut" class="btn btn-primary my-2 my-sm-0">LOG OUT</button>
               </form>
             </div>
           </nav>
 </div>`,
-  props: ['isLogin']
+  props: ['isLogin'],
+  methods: {
+    logOut () {
+      localStorage.clear()
+      this.$emit('logged-out')
+    }
+  }
 })
