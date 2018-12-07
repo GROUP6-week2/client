@@ -86,6 +86,7 @@ Vue.component('mainpage', {
                                 <p class="card-text">{{ data.phone }}</p>
                                 <img :src="data.currentImage.imageUrl" class="img-fluid mb-3">
                                 <a href="#" class="btn btn-primary">CALL NOW</a>
+                                <hr>
                             </div>
                         </div>
                         <div class="card">
