@@ -56,7 +56,13 @@ Vue.component('mainpage', {
                             <div class="card-body">
                                 <h5 class="card-title">Special title treatment</h5>
                                 <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                
+                                <div class="custom-file">
+                                    <form @submit.prevent="uploadImage">
+                                        <input v-model="image" type="file" class="custom-file-input" id="customFile">
+                                        <label class="custom-file-label" for="customFile">Choose file</label>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
