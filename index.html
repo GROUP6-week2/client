@@ -17,9 +17,13 @@
 <body>
 
     <div id="app" class="container-fluid">
-        <navbar v-if="isLogin" @logged-out="loginCheck"></navbar>
-        <loginform v-if="!isLogin" @logged-in="loginCheck"></loginform>
-        <mainpage v-if="isLogin" @logged-out="loginCheck"></mainpage>
+        <navbar v-if="isLogin" @logged-out="loginCheck" class="sticky-top mb-3"></navbar>
+        <div v-if="!isLogin" class="row justify-content-center align-items-center" style="height: 100vh">
+            <div class="col">
+                <loginform @logged-in="loginCheck"></loginform>
+            </div>
+        </div>
+        <mainpage v-if="isLogin" @logged-out="loginCheck" class="mb-5"></mainpage>
     </div>
 
 

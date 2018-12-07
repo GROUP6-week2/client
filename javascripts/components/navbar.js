@@ -1,6 +1,6 @@
 Vue.component('navbar', {
     template: `<div>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color:lightgrey">
+    <nav class="navbar navbar-expand-md navbar-dark" style="background-color:lightgrey">
             <a class="navbar-brand ml-3" href="#"><img src="assets/logo_emotionship.png" width="150px"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
