@@ -16,9 +16,10 @@
 
 <body>
 
-    <div id="app" class="container">
+    <div id="app" class="container-fluid">
         <navbar v-if="isLogin" @logged-out="loginCheck"></navbar>
         <loginform v-if="!isLogin" @logged-in="loginCheck"></loginform>
+        <mainpage v-if="isLogin" @logged-out="loginCheck"></mainpage>
     </div>
 
 
@@ -33,6 +34,7 @@
         <script src="javascripts/components/navbar.js"></script>
     <script src="javascripts/components/loginForm.js"></script>
     <script src="javascripts/components/registerModal.js"></script>
+    <script src="javascripts/components/mainPage.js"></script>
     <script src="javascripts/vue.js"></script>
 
 </body>
