@@ -16,7 +16,7 @@ Vue.component('mainpage', {
             let formData = new FormData()
             formData.append('image', this.image)
             axios({
-                url: `http://localhost:3000/images`,
+                url: `http://35.247.172.222:3000/images`,
                 method: 'POST',
                 data: formData,
                 headers: {

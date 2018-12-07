@@ -2,7 +2,6 @@ Vue.component('loginform', {
     data:
         function () {
             return {
-                url: 'http://localhost:3000',
                 login: {
                     email: '',
                     password: ''
@@ -12,7 +11,7 @@ Vue.component('loginform', {
     methods: {
         loginPost() {
             axios({
-                url: `${this.url}/login`,
+                url: `http://35.247.172.222:3000/login`,
                 method: 'POST',
                 data: {
                     email: this.login.email,
