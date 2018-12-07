@@ -2,8 +2,17 @@ Vue.component('mainpage', {
     data() {
         return {
             image: '',
+<<<<<<< HEAD
             urlSource: '',
             mood: ""
+=======
+            urlSource: `https://memegen.link/custom/lalala/yuhuu.jpg?alt=http://www.gstatic.com/webp/gallery/1.jpg`,
+            meme: {
+                textAbove: '',
+                textBelow: ''
+            },
+            matchPeople: ''
+>>>>>>> add findMatch feature
         }
     },
 
@@ -31,6 +40,22 @@ Vue.component('mainpage', {
                 .catch(err => {
                     console.log(err.message)
                 })
+        },
+
+        findMatch() {
+            axios({
+                url: `http://localhost:3000/images/find`,
+                method: 'GET',
+                headers: {
+                    token: localStorage.getItem('token')
+                }
+            })
+            .then(result => {
+                console.log(result.data)
+            })
+            .catch(err => {
+                console.log(err)
+            })
         }
     },
     template: `<div class="row">
