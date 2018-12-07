@@ -12,8 +12,9 @@ Vue.component('registerform', {
                                 <div class="modal-body">
                                     <div id="signupNotif"></div>
                                     <input v-model="name" type="text" class="form-control mb-3" placeholder="Your name" required autofocus>
-                                    <input v-model="email" type="text" class="form-control mb-3" placeholder="Email address" required autofocus>
-                                    <input v-model="password" type="password" class="form-control" placeholder="Password" required autofocus>
+                                    <input v-model="email" type="text" class="form-control mb-3" placeholder="Email address" required>
+                                    <input v-model="phone" type="text" class="form-control mb-3" placeholder="Phone Number" required>
+                                    <input v-model="password" type="password" class="form-control" placeholder="Password" required>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
@@ -27,6 +28,7 @@ Vue.component('registerform', {
         return {
             name: "",
             email: "",
+            phone: "",
             password: ""
         }
     },
@@ -38,6 +40,7 @@ Vue.component('registerform', {
                 data: {
                     name: this.name,
                     email: this.email,
+                    phone: this.phone,
                     password: this.password
                 }
             })
