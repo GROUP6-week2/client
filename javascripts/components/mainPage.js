@@ -94,11 +94,12 @@ Vue.component('mainpage', {
 
                             <div v-if="isMatch" v-for="data in match" class="card-body">
                                 <h4 class="card-text">{{ data.name }}</h4>
-                                <p class="card-text">{{ data.phone }}</p>
+                                <p>{{ data.phone }}</p>
                                 <img :src="data.currentImage.imageUrl" class="img-fluid mb-3">
-                                <a href="#" class="btn btn-primary">CALL NOW</a>
+                                <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#callnowModal" >CALL NOW</a>
+                                <callnow :phone="data.phone"></callnow>
                                 <hr>
-                            </div>
+                                </div>
                         </div>
                         <div class="card">
                             <div class="card-header">
