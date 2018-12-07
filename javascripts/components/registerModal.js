@@ -35,7 +35,7 @@ Vue.component('registerform', {
     methods: {
         register() {
             axios({
-                url: `http://localhost:3000/register`,
+                url: `http://35.247.172.222:3000/register`,
                 method: 'POST',
                 data: {
                     name: this.name,
