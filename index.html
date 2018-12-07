@@ -24,9 +24,6 @@
                 <loginform @logged-in="loginCheck"></loginform>
             </div>
         </div>
-        <image-meme :url="urlSource" :meme="meme"></image-meme>
-        <mainpage v-if="isLogin" @logged-out="loginCheck" class="mb-5"></mainpage>
-
         <div class="container">
             <mainpage v-if="isLogin" @logged-out="loginCheck" class="mb-5"></mainpage>
         </div>

@@ -1,12 +1,17 @@
 Vue.component('mainpage', {
     data() {
         return {
-            url: 'http://localhost:3000',
-            image: ''
+            image: '',
+            urlSource: `https://memegen.link/custom/lalala/yuhuu.jpg?alt=http://www.gstatic.com/webp/gallery/1.jpg`,
+            meme: {
+                textAbove: '',
+                textBelow: ''
+
+            }
         }
     },
     methods: {
-        addImage (event) {
+        addImage(event) {
             this.image = event.target.files[0]
         },
 
@@ -14,26 +19,27 @@ Vue.component('mainpage', {
             let formData = new FormData()
             formData.append('image', this.image)
             axios({
-                url: `${this.url}/images`,
+                url: `http://localhost:3000/images`,
                 method: 'POST',
                 data: formData,
                 headers: {
                     auth: localStorage.token
                 }
-                
-            })
-            .then(result => {
 
             })
-            .catch(err => {
-                
-            })
+                .then(result => {
+                    console.log(result.data)
+                })
+                .catch(err => {
+
+                })
         }
     },
     template: `<div class="row">
                     <div class="col-md-8">
                         <div class="card">
-                            <img class="card-img-top" src="assets/Screenshotfrom2018-12-05 20-10-06.png">
+                            <image-meme :url="urlSource" :meme="meme"></image-meme>
+                            
                             <div class="card-body">
                                 <h5 class="card-title">Card title</h5>
                                 <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
