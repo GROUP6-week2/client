@@ -5,7 +5,8 @@ Vue.component('mainpage', {
             urlSource: '',
             mood: "",
             message: '',
-            match: []
+            match: [],
+            isMatch: false
         }
     },
 
@@ -38,7 +39,7 @@ Vue.component('mainpage', {
 
         findMatch() {
             axios({
-                url: `http://35.247.172.222:3000/images/find`,
+                url: `https://emotionship-api.ranggakusuma.site/images/find`,
                 method: 'GET',
                 headers: {
                     auth: localStorage.token
@@ -47,9 +48,11 @@ Vue.component('mainpage', {
             .then(result => {
                 console.log(result.data)
                 if (result.data.length == 0) {
+                    this.isMatch = false
                     this.match = ['Not match with any people']
                 }
                 else {
+                    this.isMatch = true
                     this.match = result.data
                 }
             })
@@ -72,14 +75,17 @@ Vue.component('mainpage', {
                     <div class="col-md-4">
                         <div class="card mb-4">
                             <div class="card-header">
-                                <h3>People like you</h3>
+                                <h3>Your Match</h3>
                             </div>
-                            <div v-for="data in match" class="card-body">
-                                <h5 class="card-title">Special title treatment</h5>
-                                <p class="card-text">{{ data.name }}</p>
+                            <div v-if="!isMatch" class="card-body">
+                                <h4 class="card-text">Not match with any people</h4>
+                            </div>
+
+                            <div v-if="isMatch" v-for="data in match" class="card-body">
+                                <h4 class="card-text">{{ data.name }}</h4>
                                 <p class="card-text">{{ data.phone }}</p>
-                                <img :src="data.currentImage.imageUrl">"
-                                <a href="#" class="btn btn-primary">Call now!</a>
+                                <img :src="data.currentImage.imageUrl" class="img-fluid mb-3">
+                                <a href="#" class="btn btn-primary">CALL NOW</a>
                             </div>
                         </div>
                         <div class="card">
