@@ -2,17 +2,8 @@ Vue.component('mainpage', {
     data() {
         return {
             image: '',
-<<<<<<< HEAD
             urlSource: '',
             mood: ""
-=======
-            urlSource: `https://memegen.link/custom/lalala/yuhuu.jpg?alt=http://www.gstatic.com/webp/gallery/1.jpg`,
-            meme: {
-                textAbove: '',
-                textBelow: ''
-            },
-            matchPeople: ''
->>>>>>> add findMatch feature
         }
     },
 
